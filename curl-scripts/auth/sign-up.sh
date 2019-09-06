@@ -1,4 +1,4 @@
-curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
+curl "https://desolate-chamber-26085.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

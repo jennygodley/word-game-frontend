@@ -1,4 +1,4 @@
-curl "https://tic-tac-toe-wdi.herokuapp.com/sign-out" \
+curl "https://desolate-chamber-26085.herokuapp.com/sign-out" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json" \
