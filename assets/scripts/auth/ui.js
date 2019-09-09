@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('./../store')
-const gameEvents = require('./../game/events')
 
 $('.signed-in-options').hide()
 
@@ -29,6 +28,8 @@ const signInSuccess = function (data) {
   $('.signed-in-options').show()
   $('.sign-in-sign-up').hide(500)
   $('#sign-in').trigger('reset')
+  $('#collapseTwo').removeClass()
+  $('#collapseTwo').addClass('collapse')
 }
 
 const signInFailure = function () {
@@ -59,6 +60,7 @@ const signOutSuccess = function () {
   $('#signout_message').addClass('success')
   $('#signin_message').text('')
   $('#toggle').toggle()
+  $('.signed-in-options').hide(500)
   $('.sign-in-sign-up').show()
 }
 
