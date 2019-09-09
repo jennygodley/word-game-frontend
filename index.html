@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <div class="modal" id="update-modal" tabindex="-1" role="dialog">
+      <div class="modal fade" id="update-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -171,9 +171,13 @@
           <div class="update-modal">
             <form id="update-word-form">
               <fieldset>
-                <input type="text" name="word[word]" placeholder="new word" autocomplete="on">
                 <br>
-                <input class="btn btn-outline-info update-word-form" type="submit" value="reset">
+                <input id="update-word-field" type="text" name="word[word]" placeholder="new word" autocomplete="on">
+                <br>
+                <br>
+                <input class="btn btn-outline-info update-word-form" type="submit" value="update">
+                <br>
+                <br>
               </fieldset>
             </form>
           </div>
@@ -184,7 +188,39 @@
       </div>
     </div>
 
-    <div class="star"><a href="#" class="jenny">★</a></div>
+    <div class="gameboard signed-in-options">
+      <div class="image">
+      </div>
+      <br>
+      <div class="word-board">
+        <div class="word-here" id="word-here">
+        </div>
+      </div>
+      <br>
+      <div class="game-messages" id="game-messages">
+      </div>
+      <br>
+      <div class="game-messages" id="used-letters">
+      </div>
+      <br>
+      <div class="game-messages" id="turns-left">
+      </div>
+      <br>
+      <div class="word-input">
+      </div>
+      <div class="letter-input" id="letter-input-div">
+        <form id="letter-input">
+          <input type="text"name="letter[letter]" placeholder="your letter" maxlength="1" size="11" autocomplete="off" id="letter-input-field">
+          <input class="btn btn-outline-info letter-input" type="submit" value="submit">
+        </form>
+      </div>
+      <br>
+      <div class="buttons">
+        <button type="button" class="btn btn-info" id="new-game-button">new game</button>
+      </div>
+    </div>
+
+    <!-- <div class="star"><a href="#" class="jenny">★</a></div> -->
 
     </body>
 </html>

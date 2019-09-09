@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const databaseEvents = require('./../database/events.js')
 
 $('.signed-in-options').hide()
 
@@ -30,6 +31,8 @@ const signInSuccess = function (data) {
   $('#sign-in').trigger('reset')
   $('#collapseTwo').removeClass()
   $('#collapseTwo').addClass('collapse')
+  $('#letter-input-div').hide()
+  databaseEvents.onGetRandomWord()
 }
 
 const signInFailure = function () {

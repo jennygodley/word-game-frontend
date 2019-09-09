@@ -2,6 +2,7 @@
 
 const authEvents = require('./auth/events')
 const databaseEvents = require('./database/events')
+const game = require('./game/game.js')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -17,5 +18,7 @@ $(() => {
   $('.star').on('click', authEvents.onStar)
   $('#get-words').on('click', databaseEvents.onGetWords)
   $('#update-word-form').on('submit', databaseEvents.onUpdateWord)
+  $('#new-game-button').on('click', game.onNewGame)
+  $('#letter-input').on('submit', game.onLetterInput)
   databaseEvents.addHandlers()
 })

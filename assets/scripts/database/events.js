@@ -10,6 +10,12 @@ const onGetWords = function (event) {
     .catch(ui.getWordsFailure)
 }
 
+const onGetRandomWord = function (event) {
+  api.getRandomWord()
+    .then(ui.getRandomWordSuccess)
+    .catch(ui.failure)
+}
+
 const onDeleteWord = function (event) {
   const dataId = $(event.target).data('id')
   const formData = getFormFields(event.target)
@@ -23,13 +29,13 @@ const onDeleteWord = function (event) {
 
 const onUpdateWord = function (event) {
   event.preventDefault()
-  // const dataId = $(event.target).data('id')
   const form = event.target
   const formData = getFormFields(form)
 
   api.updateWord(formData)
     .then(function () {
       onGetWords(event)
+      $('#update-word-form').trigger('reset')
     })
     .catch(ui.failure)
 }
@@ -46,6 +52,12 @@ const onCreateWord = event => {
 
 const onUpdateLink = event => {
   store.dataId = $(event.target).data('id')
+  store.word = $(event.target).data('word')
+}
+
+const onUpdateWordForm = event => {
+  $('#update-word-field').attr('placeholder', '')
+  $('#update-word-field').val(store.word)
 }
 
 const addHandlers = () => {
@@ -54,6 +66,7 @@ const addHandlers = () => {
   $('.signed-in-options').on('submit', '#create-word-form', onCreateWord)
   // $('.signed-in-options').on('click', '.update-word-form', onUpdateWord)
   $('.signed-in-options').on('click', '.update-link', onUpdateLink)
+  $('.signed-in-options').on('click', '.update-link', onUpdateWordForm)
 }
 
 module.exports = {
@@ -62,5 +75,7 @@ module.exports = {
   onUpdateWord,
   addHandlers,
   onCreateWord,
-  onUpdateLink
+  onUpdateLink,
+  onUpdateWordForm,
+  onGetRandomWord
 }

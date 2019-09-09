@@ -13,6 +13,17 @@ const getWords = function () {
   })
 }
 
+const getRandomWord = function () {
+  return $.ajax({
+    url: config.apiUrl + '/random',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: ''
+  })
+}
+
 const createWord = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/words',
@@ -32,7 +43,10 @@ const createWord = function (formData) {
 const deleteWord = function (dataId) {
   return $.ajax({
     url: config.apiUrl + '/words/' + dataId,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -57,5 +71,6 @@ module.exports = {
   getWords,
   deleteWord,
   updateWord,
-  createWord
+  createWord,
+  getRandomWord
 }
