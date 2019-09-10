@@ -20,5 +20,6 @@ $(() => {
   $('#update-word-form').on('submit', databaseEvents.onUpdateWord)
   $('#new-game-button').on('click', game.onNewGame)
   $('#letter-input').on('submit', game.onLetterInput)
+  $('#random-word').on('click', game.onNewRandomGame)
   databaseEvents.addHandlers()
 })

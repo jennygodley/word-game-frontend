@@ -9,6 +9,11 @@ const onNewGame = function () {
   setTimeout(newGameSetup, 100)
 }
 
+const onNewRandomGame = function () {
+  databaseEvents.onGetRandomOnlineWord()
+  setTimeout(newGameSetup, 1000)
+}
+
 const newGameSetup = function () {
   if (store.word === undefined) {
     $('#game-messages').text('please enter some words first')
@@ -23,6 +28,16 @@ const newGameSetup = function () {
     newGame()
   }
 }
+
+// const newGameRandomSetup = function () {
+//   $('#letter-input-div').show()
+//   $('#game-messages').text('')
+//   $('#used-letters').text('')
+//   $('#turns-left').text('')
+//   $('#word-here').text('')
+//   store.turnTimer = 5
+//   newGame()
+// }
 
 const newGame = function () {
   store.usedLetters = []
@@ -53,7 +68,7 @@ const checkForLoss = function () {
     $('#game-messages').removeClass('success')
     $('#game-messages').addClass('failure')
     $('#used-letters').text('')
-    $('#turns-left').text('')
+    $('#turns-left').text('the word was ' + store.word)
     return true
   }
 }
@@ -118,5 +133,6 @@ const aTurn = function (letter) {
 
 module.exports = {
   onNewGame,
-  onLetterInput
+  onLetterInput,
+  onNewRandomGame
 }

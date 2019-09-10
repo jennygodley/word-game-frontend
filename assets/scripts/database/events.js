@@ -60,11 +60,21 @@ const onUpdateWordForm = event => {
   $('#update-word-field').val(store.word)
 }
 
+const onGetApiKey = event => {
+  api.getApiKey()
+    .then(ui.getApiKeySuccess)
+    .catch(ui.failure)
+}
+
+const onGetRandomOnlineWord = event => {
+  api.getRandomOnlineWord()
+    .then(ui.getRandomOnlineWordSuccess)
+    .catch(ui.failure)
+}
+
 const addHandlers = () => {
   $('.signed-in-options').on('click', '.delete-button', onDeleteWord)
-  // $('.signed-in-options').on('click', '.update-button', onUpdateWord)
   $('.signed-in-options').on('submit', '#create-word-form', onCreateWord)
-  // $('.signed-in-options').on('click', '.update-word-form', onUpdateWord)
   $('.signed-in-options').on('click', '.update-link', onUpdateLink)
   $('.signed-in-options').on('click', '.update-link', onUpdateWordForm)
 }
@@ -77,5 +87,7 @@ module.exports = {
   onCreateWord,
   onUpdateLink,
   onUpdateWordForm,
-  onGetRandomWord
+  onGetRandomWord,
+  onGetApiKey,
+  onGetRandomOnlineWord
 }

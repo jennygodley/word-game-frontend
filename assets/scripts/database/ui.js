@@ -1,9 +1,10 @@
 'use strict'
 
 const showWordsTemplate = require('../templates/get-words.handlebars')
-const getFormFields = require('./../../../lib/get-form-fields.js')
+// const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const store = require('../store')
+// const game = require('../game/game.js')
 
 const getWordsSuccess = function (data) {
   if (data.words.length === 0) {
@@ -60,6 +61,14 @@ const updateWordFailure = function () {
   $('#update-word-messages').text('something\'s gone wrong').delay(2000).fadeOut()
 }
 
+const getApiKeySuccess = function (data) {
+  store.apiKey = data.key
+}
+
+const getRandomOnlineWordSuccess = function (data) {
+  store.word = data.word
+}
+
 const failure = (error) => {
   console.error(error)
 }
@@ -73,5 +82,7 @@ module.exports = {
   getRandomWordSuccess,
   createWordFailure,
   updateWordFailure,
-  getRandomWordFailure
+  getRandomWordFailure,
+  getApiKeySuccess,
+  getRandomOnlineWordSuccess
 }

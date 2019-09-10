@@ -67,10 +67,33 @@ const updateWord = function (formData) {
   })
 }
 
+const getApiKey = function () {
+  return $.ajax({
+    url: config.apiUrl + '/rapidapikey',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getRandomOnlineWord = function () {
+  return $.ajax({
+    "url": "https://wordsapiv1.p.rapidapi.com/words/?random=true",
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+      "x-rapidapi-key": store.apiKey
+    }
+  })
+}
+
 module.exports = {
   getWords,
   deleteWord,
   updateWord,
   createWord,
-  getRandomWord
+  getRandomWord,
+  getApiKey,
+  getRandomOnlineWord
 }

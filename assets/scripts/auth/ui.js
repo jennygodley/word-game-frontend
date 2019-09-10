@@ -32,6 +32,7 @@ const signInSuccess = function (data) {
   $('#sign-in').trigger('reset')
   $('#collapseTwo').removeClass()
   $('#collapseTwo').addClass('collapse')
+  databaseEvents.onGetApiKey()
   // if (databaseEvents.onGetRandomWord !== null) {
   //   databaseEvents.onGetRandomWord()
   // }
