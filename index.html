@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Words</h1>
+      <h1 class="title">Words</h1>
 
       <div class="sign-in-sign-up row">
         <div class="empty col-4"></div>
@@ -33,7 +33,7 @@
                         <legend>sign up</legend>
                         <input type="text" name="credentials[email]" placeholder="user name">
                         <br>
-                        <input type="password" name="credentials[password]" placeholder="password" autocomplete="on">
+                        <input type="password" name="credentials[password]" placeholder="password" autocomplete="off">
                         <br>
                         <input type="password" name="credentials[password_confirmation]" placeholder="confirm password" autocomplete="on">
                         <br>
@@ -60,7 +60,7 @@
                       <legend>sign in</legend>
                       <input type="text" name="credentials[email]" placeholder="user name">
                       <br>
-                      <input type="password" name="credentials[password]" placeholder="password" autocomplete="on">
+                      <input type="password" name="credentials[password]" placeholder="password" autocomplete="off">
                       <br>
                       <input class="btn btn-outline-info" type="submit" value="sign in">
                       <div id="signin_message"></div>
@@ -98,11 +98,11 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form id="password" autocomplete="on">
+                <form id="password" autocomplete="off">
                   <fieldset>
-                    <input type="password" name="passwords[old]" placeholder="old password" autocomplete="on">
+                    <input type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
                     <br>
-                    <input type="password" name="passwords[new]" placeholder="new password" autocomplete="on">
+                    <input type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
                     <br>
                     <input class="btn btn-outline-info" type="submit" value="reset">
                     <div id="password_message"></div>
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="modal fade" id="wordsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">your words</h5>
@@ -146,7 +146,7 @@
                 <form id="create-word-form" autocomplete="off">
                   <fieldset>
                     <input type="text" name="word[word]" placeholder="word">
-                    <button class="btn create-button btn-sm">create</button>
+                    <button class="btn btn-outline-info create-button btn-sm">create</button>
                   </fieldset>
               </form>
                 <div id="create-words-messages"></div>
@@ -164,7 +164,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">edit word</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close btn-outline-warning" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -172,7 +172,7 @@
             <form id="update-word-form">
               <fieldset>
                 <br>
-                <input id="update-word-field" type="text" name="word[word]" placeholder="new word" autocomplete="on">
+                <input id="update-word-field" type="text" name="word[word]" placeholder="new word" autocomplete="off">
                 <br>
                 <br>
                 <input class="btn btn-outline-info update-word-form" type="submit" value="update">
@@ -181,8 +181,10 @@
               </fieldset>
             </form>
           </div>
+          <div id="update-word-messages" class="update-word-messages">
+          </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -216,7 +218,7 @@
       </div>
       <br>
       <div class="buttons">
-        <button type="button" class="btn btn-info" id="new-game-button">new game</button>
+        <button type="button" class="btn btn-outline-info" id="new-game-button">new game</button>
       </div>
     </div>
 

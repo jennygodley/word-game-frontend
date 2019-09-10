@@ -1,21 +1,39 @@
+$theme-colors: (
+  'info': #f27252,
+  'warning': #fadd5c
+);
 
-@import url('https://fonts.googleapis.com/css?family=Suez+One|Catamaran:900|Lato|Prompt|Chango&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Red+Hat+Display:900&display=swap');
 @import '~bootstrap/scss/bootstrap';
 
 $white: #fff;
-$green: #79b758;
-$orange: #f58742;
+$success: #ade667;
+$failure: #f27252;
+
 
 body {
-  color: $green;
-  font-family: lato, sans-serif;
+  color: $warning;
+  font-family: Quicksand, sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
 a {
-  color: $yellow;
+  color: $info;
+}
+
+input[type=text] {
+  color: $info;
+}
+
+.title {
+  font-family: Red Hat Display, sans-serif;
+}
+
+.word-here {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .underline {
@@ -29,9 +47,9 @@ a {
 }
 
 .success {
-  color: $green;
+  color: $success;
 }
 
 .failure {
-  color: $orange;
+  color: $failure;
 }

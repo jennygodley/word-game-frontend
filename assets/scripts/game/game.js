@@ -5,14 +5,23 @@ const databaseEvents = require('../database/events.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const onNewGame = function () {
-  $('#letter-input-div').show()
-  $('#game-messages').text('')
-  $('#used-letters').text('')
-  $('#turns-left').text('')
-  $('#word-here').text('')
   databaseEvents.onGetRandomWord()
-  newGame()
-  store.turnTimer = 5
+  setTimeout(newGameSetup, 100)
+}
+
+const newGameSetup = function () {
+  if (store.word === undefined) {
+    $('#game-messages').text('please enter some words first')
+    $('#game-messages').addClass('failure')
+  } else {
+    $('#letter-input-div').show()
+    $('#game-messages').text('')
+    $('#used-letters').text('')
+    $('#turns-left').text('')
+    $('#word-here').text('')
+    store.turnTimer = 5
+    newGame()
+  }
 }
 
 const newGame = function () {
@@ -26,16 +35,25 @@ const newGame = function () {
 
 const onLetterInput = function (event) {
   event.preventDefault()
-  // $('#letter-input').trigger('reset')
   const form = event.target
   const formData = getFormFields(form)
-  aTurn(formData.letter)
-  $('#letter-input-field').val('')
+  if (!formData.letter.letter) {
+    $('#game-messages').text('please enter a letter')
+    $('#game-messages').removeClass('success')
+    $('#game-messages').addClass('failure')
+  } else {
+    aTurn(formData.letter)
+    $('#letter-input-field').val('')
+  }
 }
 
 const checkForLoss = function () {
   if (store.turnTimer === 0) {
     $('#game-messages').text('you lost!')
+    $('#game-messages').removeClass('success')
+    $('#game-messages').addClass('failure')
+    $('#used-letters').text('')
+    $('#turns-left').text('')
     return true
   }
 }
@@ -43,6 +61,10 @@ const checkForLoss = function () {
 const checkForWin = function () {
   if ((store.spaceArray.join('')) === (store.wordArray.join(''))) {
     $('#game-messages').text('you win!')
+    $('#game-messages').removeClass('failure')
+    $('#game-messages').addClass('success')
+    $('#used-letters').text('')
+    $('#turns-left').text('')
     return true
   }
 }
@@ -52,7 +74,13 @@ const noMatch = function (letter) {
   $('#used-letters').text(store.usedLetters.join(' '))
   $('#used-letters').css('text-decoration', 'line-through')
   store.turnTimer--
-  $('#turns-left').text(store.turnTimer + ' wrong guesses left')
+  if (store.turnTimer > 1) {
+    $('#turns-left').text(store.turnTimer + ' wrong guesses left')
+  } else if (store.turnTimer === 1) {
+    $('#turns-left').text(store.turnTimer + ' wrong guess left')
+  } else if (store.turnTimer === 0) {
+    $('#turns-left').text('')
+  }
 }
 
 const aTurn = function (letter) {

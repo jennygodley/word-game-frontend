@@ -4,6 +4,7 @@ const store = require('./../store')
 const databaseEvents = require('./../database/events.js')
 
 $('.signed-in-options').hide()
+$('#letter-input-div').hide()
 
 const signUpSuccess = function () {
   $('#signup_message').text('signed up successfully').delay(2000).fadeOut()
@@ -31,8 +32,9 @@ const signInSuccess = function (data) {
   $('#sign-in').trigger('reset')
   $('#collapseTwo').removeClass()
   $('#collapseTwo').addClass('collapse')
-  $('#letter-input-div').hide()
-  databaseEvents.onGetRandomWord()
+  // if (databaseEvents.onGetRandomWord !== null) {
+  //   databaseEvents.onGetRandomWord()
+  // }
 }
 
 const signInFailure = function () {
@@ -65,6 +67,12 @@ const signOutSuccess = function () {
   $('#toggle').toggle()
   $('.signed-in-options').hide(500)
   $('.sign-in-sign-up').show()
+  $('#letter-input-div').show()
+  $('#game-messages').text('')
+  $('#used-letters').text('')
+  $('#turns-left').text('')
+  $('#word-here').text('')
+  $('#letter-input-div').hide()
 }
 
 const signOutFailure = function () {

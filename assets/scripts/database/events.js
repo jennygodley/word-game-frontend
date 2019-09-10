@@ -13,7 +13,7 @@ const onGetWords = function (event) {
 const onGetRandomWord = function (event) {
   api.getRandomWord()
     .then(ui.getRandomWordSuccess)
-    .catch(ui.failure)
+    .catch(ui.getRandomWordFailure)
 }
 
 const onDeleteWord = function (event) {
@@ -37,7 +37,7 @@ const onUpdateWord = function (event) {
       onGetWords(event)
       $('#update-word-form').trigger('reset')
     })
-    .catch(ui.failure)
+    .catch(ui.updateWordFailure)
 }
 
 const onCreateWord = event => {
@@ -47,7 +47,7 @@ const onCreateWord = event => {
 
   api.createWord(formData)
     .then(ui.createWordSuccess)
-    .catch(ui.failure)
+    .catch(ui.createWordFailure)
 }
 
 const onUpdateLink = event => {
