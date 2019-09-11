@@ -6,6 +6,10 @@ const store = require('../store')
 const databaseApi = require('../database/api.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
+const setKittyOne = function () {
+  $('.kitty-image').html('<img src="assets/images/kitty1.jpg">')
+}
+
 const onNewGame = function () {
   databaseApi.getRandomWord()
     .then(newGameSetup)
@@ -52,6 +56,7 @@ const newGameSetup = function (data) {
 }
 
 const newGame = function () {
+  setKittyOne()
   store.usedLetters = []
   const wordArray = store.word.split('')
   store.wordArray = wordArray
@@ -104,6 +109,7 @@ const checkForWin = function () {
 
 const noMatch = function (letter) {
   if (letter.letter !== ' ') {
+    $('.kitty-image').html('<img src="assets/images/kitty2.jpg">')
     $('#game-messages').text('no matches!')
     $('#game-messages').removeClass('success')
     $('#game-messages').addClass('failure')
@@ -111,10 +117,12 @@ const noMatch = function (letter) {
     $('#used-letters').css('text-decoration', 'line-through')
     store.turnTimer--
     if (store.turnTimer > 1) {
+      setTimeout(setKittyOne, 500)
       if (letter.letter === ' ') {
       }
       $('#turns-left').text(store.turnTimer + ' wrong guesses left')
     } else if (store.turnTimer === 1) {
+      setTimeout(setKittyOne, 500)
       $('#turns-left').text(store.turnTimer + ' wrong guess left')
     } else if (store.turnTimer === 0) {
       $('#turns-left').text('')
@@ -157,10 +165,12 @@ const aTurn = function (letter) {
   checkForLoss()
   if (checkForLoss() === true) {
     $('#letter-input-div').hide()
+    $('.kitty-image').html('<img src="assets/images/kitty3.jpg">')
   }
   checkForWin()
   if (checkForWin() === true) {
     $('#letter-input-div').hide()
+    // $('#word-here').text('')
   }
 }
 
