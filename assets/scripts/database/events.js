@@ -17,7 +17,12 @@ const onDeleteWord = function (event) {
   api.deleteWord(dataId, formData)
     .then(function () {
       onGetWords(event)
-    })
+      $('#update-modal').modal('hide')
+    },
+    $('#get-words-alerts').html('success <hr>').show(),
+    $('#get-words-alerts').html('success <hr>').delay(2000).fadeOut(),
+    $('#get-words-alerts').removeClass('failure'),
+    $('#get-words-alerts').addClass('success'))
     .catch(ui.failure)
 }
 
@@ -29,7 +34,11 @@ const onUpdateWord = function (event) {
     .then(function () {
       onGetWords(event)
       $('#update-modal').modal('hide')
-    })
+    },
+    $('#get-words-alerts').html('success <hr>').show(),
+    $('#get-words-alerts').html('success <hr>').delay(2000).fadeOut(),
+    $('#get-words-alerts').removeClass('failure'),
+    $('#get-words-alerts').addClass('success'))
     .catch(ui.updateWordFailure)
 }
 

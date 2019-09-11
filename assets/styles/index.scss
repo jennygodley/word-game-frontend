@@ -1,6 +1,7 @@
 $theme-colors: (
   'info': #f27252,
-  'warning': #fadd5c
+  'warning': #fadd5c,
+  'light': #fff
 );
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand|Red+Hat+Display:900&display=swap');
@@ -26,6 +27,19 @@ a {
 input[type=text] {
   color: $info;
 }
+//
+// .center-div {
+//   text-align: center;
+//   position: absolute;
+//   bottom: 5px;
+// }
+
+.bottom-buttons {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  text-align: center;
+}
 
 .top-right {
   position: absolute;
@@ -49,7 +63,7 @@ input[type=text] {
 }
 
 .letter-input {
-  width: 200px;
+  // width: 200px;
   display: inline-block;
 }
 

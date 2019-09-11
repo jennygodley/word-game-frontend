@@ -76,7 +76,7 @@
       </div>
 
       <div class="dropdown signed-in-options top-right">
-        <button class="btn btn-secondary dropdown-toggle btn-warning text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle btn-light text-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           options
         </button>
         <div class="dropdown-menu dropdown-menu-right border-info" aria-labelledby="dropdownMenuButton">
@@ -126,6 +126,8 @@
                 </button>
               </div>
               <div class="modal-body">
+                <div id="get-words-alerts">
+                </div>
                 <div id="get-words-messages"></div>
               </div>
               <div class="modal-footer">
@@ -217,17 +219,19 @@
       </div>
       <div class="letter-input" id="letter-input-div">
         <form id="letter-input">
-          <input class="form-control" type="text"name="letter[letter]" placeholder="your letter" maxlength="1" size="11" autocomplete="off" id="letter-input-field">
-          <br>
-          <input class="btn btn-outline-info letter-input" type="submit" value="submit">
+          <div class="input-group mb-3">
+            <input type="text" name="letter[letter]" class="form-control" placeholder="your letter" id="letter-input-field" autocomplete="off">
+            <div class="input-group-append">
+              <button class="btn btn-outline-info letter-input" type="submit" value="submit">submit</button>
+            </div>
+          </div>
         </form>
       </div>
       <br>
-      <div class="buttons">
-        <button type="button" class="btn btn-outline-info button-margin" id="new-game-button">new game</button>
-        <br>
-        <button type="button" class="btn btn-outline-info button-margin" id="random-word">new random game</button>
-      </div>
+        <div class="bottom-buttons">
+          <button type="button" class="btn btn-outline-info button-margin" id="new-game-button">new game</button>
+          <button type="button" class="btn btn-outline-info button-margin" id="random-word">new random game</button>
+        </div>
       </div>
     </div>
 

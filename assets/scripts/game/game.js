@@ -103,20 +103,22 @@ const checkForWin = function () {
 }
 
 const noMatch = function (letter) {
-  $('#game-messages').text('no matches!')
-  $('#game-messages').removeClass('success')
-  $('#game-messages').addClass('failure')
-  $('#used-letters').text(store.usedLetters.join(' '))
-  $('#used-letters').css('text-decoration', 'line-through')
-  store.turnTimer--
-  if (store.turnTimer > 1) {
-    if (letter.letter === ' ') {
+  if (letter.letter !== ' ') {
+    $('#game-messages').text('no matches!')
+    $('#game-messages').removeClass('success')
+    $('#game-messages').addClass('failure')
+    $('#used-letters').text(store.usedLetters.join(' '))
+    $('#used-letters').css('text-decoration', 'line-through')
+    store.turnTimer--
+    if (store.turnTimer > 1) {
+      if (letter.letter === ' ') {
+      }
+      $('#turns-left').text(store.turnTimer + ' wrong guesses left')
+    } else if (store.turnTimer === 1) {
+      $('#turns-left').text(store.turnTimer + ' wrong guess left')
+    } else if (store.turnTimer === 0) {
+      $('#turns-left').text('')
     }
-    $('#turns-left').text(store.turnTimer + ' wrong guesses left')
-  } else if (store.turnTimer === 1) {
-    $('#turns-left').text(store.turnTimer + ' wrong guess left')
-  } else if (store.turnTimer === 0) {
-    $('#turns-left').text('')
   }
 }
 
@@ -141,7 +143,7 @@ const aTurn = function (letter) {
   }
   matches(letter)
   findMatches()
-  if (indices.length === 0) {
+  if ((indices.length === 0) && (letter !== ' ')) {
     store.usedLetters.push(letter.letter)
     noMatch(letter)
   } else if (letter.letter === ' ') {
