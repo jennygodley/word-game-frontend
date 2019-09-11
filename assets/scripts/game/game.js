@@ -70,6 +70,10 @@ const onLetterInput = function (event) {
     $('#game-messages').text('please enter a letter')
     $('#game-messages').removeClass('success')
     $('#game-messages').addClass('failure')
+  } else if (store.usedLetters.includes(formData.letter.letter)) {
+    $('#game-messages').text('please enter a new letter')
+    $('#game-messages').removeClass('success')
+    $('#game-messages').addClass('failure')
   } else {
     aTurn(formData.letter)
     $('#letter-input-field').val('')
@@ -100,6 +104,8 @@ const checkForWin = function () {
 
 const noMatch = function (letter) {
   $('#game-messages').text('no matches!')
+  $('#game-messages').removeClass('success')
+  $('#game-messages').addClass('failure')
   $('#used-letters').text(store.usedLetters.join(' '))
   $('#used-letters').css('text-decoration', 'line-through')
   store.turnTimer--
@@ -126,6 +132,7 @@ const aTurn = function (letter) {
   const findMatches = function () {
     for (let i = 0; i < indices.length; i++) {
       if (letter.letter === ' ') {
+        store.wordArray.splice(indices[i], 1, '&nbsp;&nbsp;')
         store.spaceArray.splice(indices[i], 1, '&nbsp;&nbsp;')
       } else {
         store.spaceArray.splice(indices[i], 1, letter.letter)
@@ -140,6 +147,8 @@ const aTurn = function (letter) {
   } else if (letter.letter === ' ') {
   } else {
     $('#game-messages').text('you got a match!')
+    $('#game-messages').removeClass('failure')
+    $('#game-messages').addClass('success')
   }
   $('#word-here').html(store.spaceArray.join(' '))
   checkForLoss()
