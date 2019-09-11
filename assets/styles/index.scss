@@ -27,15 +27,21 @@ input[type=text] {
   color: $info;
 }
 
+.top-right {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .button-margin {
   margin: 5px;
 }
 
-.update-field {
+.parent-div {
   text-align: center;
 }
 
-.update-modal {
+.content-div {
   text-align: center;
   padding-right: 25%;
   padding-left: 25%;
