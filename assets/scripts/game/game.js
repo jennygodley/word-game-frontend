@@ -7,7 +7,7 @@ const databaseApi = require('../database/api.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const setKittyOne = function () {
-  $('.kitty-image').html('<img src="assets/images/kitty1.jpg">')
+  $('.kitty-image').html('<img src="https://i.imgur.com/3AiMlNe.jpg">')
 }
 
 const onNewGame = function () {
@@ -109,7 +109,7 @@ const checkForWin = function () {
 
 const noMatch = function (letter) {
   if (letter.letter !== ' ') {
-    $('.kitty-image').html('<img src="assets/images/kitty2.jpg">')
+    $('.kitty-image').html('<img src="https://i.imgur.com/QkbOtGM.jpg">')
     $('#game-messages').text('no matches!')
     $('#game-messages').removeClass('success')
     $('#game-messages').addClass('failure')
@@ -165,7 +165,7 @@ const aTurn = function (letter) {
   checkForLoss()
   if (checkForLoss() === true) {
     $('#letter-input-div').hide()
-    $('.kitty-image').html('<img src="assets/images/kitty3.jpg">')
+    $('.kitty-image').html('<img src="https://i.imgur.com/Z4DsEFy.jpg">')
   }
   checkForWin()
   if (checkForWin() === true) {
