@@ -31,11 +31,11 @@
                     <form id="sign-up" autocomplete="on">
                       <fieldset>
                         <legend>sign up</legend>
-                        <input type="text" name="credentials[email]" placeholder="user name">
+                        <input class="form-control" type="text" name="credentials[email]" placeholder="user name">
                         <br>
-                        <input type="password" name="credentials[password]" placeholder="password" autocomplete="off">
+                        <input class="form-control" type="password" name="credentials[password]" placeholder="password" autocomplete="off">
                         <br>
-                        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password" autocomplete="on">
+                        <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="confirm password" autocomplete="on">
                         <br>
                         <input class="btn btn-outline-info" type="submit" value="sign up">
                         <br>
@@ -58,9 +58,9 @@
                   <form id="sign-in" autocomplete="on">
                     <fieldset>
                       <legend>sign in</legend>
-                      <input type="text" name="credentials[email]" placeholder="user name">
+                      <input class="form-control" type="text" name="credentials[email]" placeholder="user name">
                       <br>
-                      <input type="password" name="credentials[password]" placeholder="password" autocomplete="off">
+                      <input class="form-control" type="password" name="credentials[password]" placeholder="password" autocomplete="off">
                       <br>
                       <input class="btn btn-outline-info" type="submit" value="sign in">
                       <div id="signin_message"></div>
@@ -100,9 +100,9 @@
               <div class="modal-body">
                 <form id="password" autocomplete="off">
                   <fieldset>
-                    <input type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
+                    <input class="form-control" type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
                     <br>
-                    <input type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
+                    <input class="form-control" type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
                     <br>
                     <input class="btn btn-outline-info" type="submit" value="reset">
                     <div id="password_message"></div>
@@ -144,11 +144,18 @@
               </div>
               <div class="modal-body">
                 <form id="create-word-form" autocomplete="off">
-                  <fieldset>
-                    <input type="text" name="word[word]" placeholder="word">
+                  <!-- <fieldset>
+                    <input class="form-control" type="text" name="word[word]" placeholder="word">
                     <button class="btn btn-outline-info create-button btn-sm">create</button>
-                  </fieldset>
+                  </fieldset> -->
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control"  name="word[word]" placeholder="new word">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-info create-button" type="button">create</button>
+                    </div>
+                  </div>
               </form>
+
                 <div id="create-words-messages"></div>
               </div>
               <div class="modal-footer">
@@ -172,7 +179,7 @@
             <form id="update-word-form">
               <fieldset>
                 <br>
-                <input id="update-word-field" type="text" name="word[word]" placeholder="new word" autocomplete="off">
+                <input class="form-control" id="update-word-field" type="text" name="word[word]" placeholder="new word" autocomplete="off">
                 <br>
                 <br>
                 <input class="btn btn-outline-info update-word-form" type="submit" value="update">
@@ -212,7 +219,7 @@
       </div>
       <div class="letter-input" id="letter-input-div">
         <form id="letter-input">
-          <input type="text"name="letter[letter]" placeholder="your letter" maxlength="1" size="11" autocomplete="off" id="letter-input-field">
+          <input class="form-control" type="text"name="letter[letter]" placeholder="your letter" maxlength="1" size="11" autocomplete="off" id="letter-input-field">
           <br>
           <input class="btn btn-outline-info letter-input" type="submit" value="submit">
         </form>

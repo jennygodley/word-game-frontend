@@ -1,6 +1,7 @@
 'use strict'
 
 const showWordsTemplate = require('../templates/get-words.handlebars')
+const game = require('../game/game.js')
 // const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const store = require('../store')
@@ -17,11 +18,17 @@ const getWordsSuccess = function (data) {
   }
 }
 
-const getRandomWordSuccess = function (data) {
-  if (data !== null) {
-    store.word = data.word.word
-  }
-}
+// const getRandomOnlineWordSuccess = function (data) {
+//   store.word = data.word
+//   console.log(store.word)
+//   game.newGameSetup()
+// }
+//
+// const getRandomWordSuccess = function (data) {
+//   store.word = data.word.word
+//   console.log(store.word)
+//   game.newGameSetup()
+// }
 
 const getRandomWordFailure = function (data) {
   $('#game-messages').text('something\'s gone wrong')
@@ -65,10 +72,6 @@ const getApiKeySuccess = function (data) {
   store.apiKey = data.key
 }
 
-const getRandomOnlineWordSuccess = function (data) {
-  store.word = data.word
-}
-
 const failure = (error) => {
   console.error(error)
 }
@@ -79,10 +82,10 @@ module.exports = {
   createWordSuccess,
   updateWordSuccess,
   failure,
-  getRandomWordSuccess,
+  // getRandomWordSuccess,
   createWordFailure,
   updateWordFailure,
   getRandomWordFailure,
-  getApiKeySuccess,
-  getRandomOnlineWordSuccess
+  getApiKeySuccess
+  // getRandomOnlineWordSuccess
 }

@@ -27,6 +27,15 @@ input[type=text] {
   color: $info;
 }
 
+.letter-input {
+  width: 200px;
+  display: inline-block;
+}
+
+.gameboard {
+  text-align: center;
+}
+
 .title {
   font-family: Red Hat Display, sans-serif;
 }

@@ -9,12 +9,12 @@ const onGetWords = function (event) {
     .then(ui.getWordsSuccess)
     .catch(ui.getWordsFailure)
 }
-
-const onGetRandomWord = function (event) {
-  api.getRandomWord()
-    .then(ui.getRandomWordSuccess)
-    .catch(ui.getRandomWordFailure)
-}
+//
+// const onGetRandomWord = function (event) {
+//   api.getRandomWord()
+//     .then(ui.getRandomWordSuccess)
+//     .catch(ui.getRandomWordFailure)
+// }
 
 const onDeleteWord = function (event) {
   const dataId = $(event.target).data('id')
@@ -87,7 +87,7 @@ module.exports = {
   onCreateWord,
   onUpdateLink,
   onUpdateWordForm,
-  onGetRandomWord,
+  // onGetRandomWord,
   onGetApiKey,
   onGetRandomOnlineWord
 }

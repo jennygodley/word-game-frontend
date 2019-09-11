@@ -94,6 +94,5 @@ module.exports = {
   updateWord,
   createWord,
   getRandomWord,
-  // getApiKey,
   getRandomOnlineWord
 }
