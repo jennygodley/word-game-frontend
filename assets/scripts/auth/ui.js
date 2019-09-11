@@ -1,12 +1,13 @@
 'use strict'
 
 const store = require('./../store')
-const databaseEvents = require('./../database/events.js')
+// const events = require('./events')
+// const databaseEvents = require('./../database/events.js')
 
 $('.signed-in-options').hide()
 $('#letter-input-div').hide()
 
-const signUpSuccess = function () {
+const signUpSuccess = function (data) {
   $('#signup_message').text('signed up successfully').delay(2000).fadeOut()
   $('#signup_message').removeClass()
   $('#signup_message').addClass('success')
@@ -32,10 +33,6 @@ const signInSuccess = function (data) {
   $('#sign-in').trigger('reset')
   $('#collapseTwo').removeClass()
   $('#collapseTwo').addClass('collapse')
-  // databaseEvents.onGetApiKey()
-  // if (databaseEvents.onGetRandomWord !== null) {
-  //   databaseEvents.onGetRandomWord()
-  // }
 }
 
 const signInFailure = function () {

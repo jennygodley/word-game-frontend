@@ -27,6 +27,21 @@ input[type=text] {
   color: $info;
 }
 
+.button-margin {
+  margin: 5px;
+}
+
+.update-field {
+  text-align: center;
+}
+
+.update-modal {
+  text-align: center;
+  padding-right: 25%;
+  padding-left: 25%;
+  display: inline-block;
+}
+
 .letter-input {
   width: 200px;
   display: inline-block;

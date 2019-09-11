@@ -17,7 +17,7 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('.star').on('click', authEvents.onStar)
   $('#get-words').on('click', databaseEvents.onGetWords)
-  $('#update-word-form').on('submit', databaseEvents.onUpdateWord)
+  $('#update-word-form').submit(databaseEvents.onUpdateWord)
   $('#new-game-button').on('click', game.onNewGame)
   $('#letter-input').on('submit', game.onLetterInput)
   $('#random-word').on('click', game.onNewRandomGame)

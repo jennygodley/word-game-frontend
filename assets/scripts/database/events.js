@@ -9,12 +9,6 @@ const onGetWords = function (event) {
     .then(ui.getWordsSuccess)
     .catch(ui.getWordsFailure)
 }
-//
-// const onGetRandomWord = function (event) {
-//   api.getRandomWord()
-//     .then(ui.getRandomWordSuccess)
-//     .catch(ui.getRandomWordFailure)
-// }
 
 const onDeleteWord = function (event) {
   const dataId = $(event.target).data('id')
@@ -31,13 +25,17 @@ const onUpdateWord = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-
   api.updateWord(formData)
     .then(function () {
       onGetWords(event)
-      $('#update-word-form').trigger('reset')
+      $('#update-modal').modal('hide')
     })
     .catch(ui.updateWordFailure)
+}
+
+const onUpdateWordForm = event => {
+  $('#update-word-field').attr('placeholder', '')
+  $('#update-word-field').val(store.word)
 }
 
 const onCreateWord = event => {
@@ -53,11 +51,6 @@ const onCreateWord = event => {
 const onUpdateLink = event => {
   store.dataId = $(event.target).data('id')
   store.word = $(event.target).data('word')
-}
-
-const onUpdateWordForm = event => {
-  $('#update-word-field').attr('placeholder', '')
-  $('#update-word-field').val(store.word)
 }
 
 const onGetApiKey = event => {
@@ -87,7 +80,6 @@ module.exports = {
   onCreateWord,
   onUpdateLink,
   onUpdateWordForm,
-  // onGetRandomWord,
   onGetApiKey,
   onGetRandomOnlineWord
 }

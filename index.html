@@ -19,6 +19,30 @@
         <div id="sign-in-sign-up" class="col-4 keep-largest">
           <div id="accordion">
             <div class="card border-warning mb-3">
+              <div class="card-header bg-transparent" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed text-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    sign in
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <form id="sign-in" autocomplete="on">
+                    <fieldset>
+                      <legend>sign in</legend>
+                      <input class="form-control" type="text" name="credentials[email]" placeholder="user name">
+                      <br>
+                      <input class="form-control" type="password" name="credentials[password]" placeholder="password" autocomplete="off">
+                      <br>
+                      <input class="btn btn-outline-info" type="submit" value="sign in">
+                      <div id="signin_message"></div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
               <div class="card-header bg-transparent" id="headingOne">
                 <h5 class="mb-0">
                   <button class="btn btn-link text-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -26,6 +50,7 @@
                   </button>
                 </h5>
               </div>
+
               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <form id="sign-up" autocomplete="on">
@@ -42,30 +67,6 @@
                         <div id="signup_message"></div>
                       </fieldset>
                     </form>
-                </div>
-              </div>
-            </div>
-            <div class="card border-warning mb-3">
-              <div class="card-header bg-transparent" id="headingTwo">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed text-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    sign in
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                  <form id="sign-in" autocomplete="on">
-                    <fieldset>
-                      <legend>sign in</legend>
-                      <input class="form-control" type="text" name="credentials[email]" placeholder="user name">
-                      <br>
-                      <input class="form-control" type="password" name="credentials[password]" placeholder="password" autocomplete="off">
-                      <br>
-                      <input class="btn btn-outline-info" type="submit" value="sign in">
-                      <div id="signin_message"></div>
-                    </fieldset>
-                  </form>
                 </div>
               </div>
             </div>
@@ -144,10 +145,6 @@
               </div>
               <div class="modal-body">
                 <form id="create-word-form" autocomplete="off">
-                  <!-- <fieldset>
-                    <input class="form-control" type="text" name="word[word]" placeholder="word">
-                    <button class="btn btn-outline-info create-button btn-sm">create</button>
-                  </fieldset> -->
                   <div class="input-group mb-3">
                     <input type="text" class="form-control"  name="word[word]" placeholder="new word">
                     <div class="input-group-append">
@@ -168,7 +165,7 @@
 
       <div class="modal fade" id="update-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content update-field">
           <div class="modal-header">
             <h5 class="modal-title">edit word</h5>
             <button type="button" class="close btn-outline-warning" data-dismiss="modal" aria-label="Close">
@@ -179,11 +176,12 @@
             <form id="update-word-form">
               <fieldset>
                 <br>
-                <input class="form-control" id="update-word-field" type="text" name="word[word]" placeholder="new word" autocomplete="off">
-                <br>
-                <br>
-                <input class="btn btn-outline-info update-word-form" type="submit" value="update">
-                <br>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="update-word-field" name="word[word]" placeholder="new word" autocomplete="off">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-info update-word-form" id="update-word-submit" type="submit">update</button>
+                  </div>
+                </div>
                 <br>
               </fieldset>
             </form>
@@ -226,9 +224,9 @@
       </div>
       <br>
       <div class="buttons">
-        <button type="button" class="btn btn-outline-info" id="new-game-button">new game</button>
+        <button type="button" class="btn btn-outline-info button-margin" id="new-game-button">new game</button>
         <br>
-        <button type="button" class="btn btn-outline-info" id="random-word">new random game</button>
+        <button type="button" class="btn btn-outline-info button-margin" id="random-word">new random game</button>
       </div>
       </div>
     </div>
