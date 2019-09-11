@@ -1,4 +1,4 @@
-# Word Game Readme
+# Bad Kitty Word Match Readme
 
 ### About
 
