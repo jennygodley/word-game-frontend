@@ -4,11 +4,12 @@ $theme-colors: (
   'light': #fff,
 );
 $dropdown-link-color: #fff;
-// $dropdown-link-hover-color: darken($gray-900, 5%) !default;
-// $dropdown-link-hover-bg: $gray-100 !default;
-
-$dropdown-link-active-color: #fff !default;
-// $dropdown-link-active-bg:
+$dropdown-link-active-color: #fff3e3 !default;
+$dropdown-link-active-bg: #ffebd1 !default;
+$dropdown-link-hover-color: #ffebd1 !default;
+$dropdown-link-hover-bg: #fff3e3 !default;
+$dropdown-box-shadow: #ffebd1 !default;
+$dropdown-link-disabled-color: #ffebd1 !default;
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand|Red+Hat+Display:900&display=swap');
 @import '~bootstrap/scss/bootstrap';
