@@ -124,7 +124,6 @@ const noMatch = function (letter) {
 
 const aTurn = function (letter) {
   letter.letter = letter.letter.toLowerCase()
-  console.log(letter.letter)
   const indices = []
   const matches = function (letter) {
     for (let i = 0; i < store.wordArray.length; i++) {

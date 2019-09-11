@@ -1,8 +1,14 @@
 $theme-colors: (
   'info': #f27252,
   'warning': #fadd5c,
-  'light': #fff
+  'light': #fff,
 );
+$dropdown-link-color: #fff;
+// $dropdown-link-hover-color: darken($gray-900, 5%) !default;
+// $dropdown-link-hover-bg: $gray-100 !default;
+
+$dropdown-link-active-color: #fff !default;
+// $dropdown-link-active-bg:
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand|Red+Hat+Display:900&display=swap');
 @import '~bootstrap/scss/bootstrap';
@@ -10,6 +16,8 @@ $theme-colors: (
 $white: #fff;
 $success: #ade667;
 $failure: #f27252;
+$orange: #f08e05;
+$darkorange: #c4770c;
 
 
 body {
@@ -21,18 +29,20 @@ body {
 }
 
 a {
-  color: $info;
+  color: $orange;
+}
+
+a:hover {
+  color: $darkorange;
 }
 
 input[type=text] {
-  color: $info;
+  color: $orange;
 }
-//
-// .center-div {
-//   text-align: center;
-//   position: absolute;
-//   bottom: 5px;
-// }
+
+.keep-largest {
+  min-width: 300px;
+}
 
 .bottom-buttons {
   position: absolute;
