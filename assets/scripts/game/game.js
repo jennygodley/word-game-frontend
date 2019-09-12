@@ -24,7 +24,7 @@ const onNewRandomGame = function () {
 
 const newGameSetup = function (data) {
   if (data === null) {
-    $('#game-messages').text('please enter some words first')
+    $('#game-messages').html('please <a href="#" data-toggle="modal" data-target="#createWordModal">enter some words</a> first')
     $('#game-messages').addClass('failure')
     $('#used-letters').text('')
     $('#turns-left').text('')
@@ -39,10 +39,10 @@ const newGameSetup = function (data) {
     store.word = data.word
   }
   if (store.word === undefined) {
-    $('#game-messages').text('please enter some words first')
+    $('#game-messages').html('please <a href="#" data-toggle="modal" data-target="#createWordModal">enter some words</a> first')
     $('#game-messages').addClass('failure')
   } else if (data === null) {
-    $('#game-messages').text('please enter some words first')
+    $('#game-messages').html('please <a href="#" data-toggle="modal" data-target="#createWordModal">enter some words</a> first')
     $('#game-messages').addClass('failure')
   } else {
     $('#letter-input-div').show()
@@ -56,7 +56,6 @@ const newGameSetup = function (data) {
 }
 
 const newGame = function () {
-  console.log(store.user.id)
   setKittyOne()
   store.usedLetters = []
   const wordArray = store.word.split('')
