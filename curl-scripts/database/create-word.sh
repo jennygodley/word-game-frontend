@@ -7,8 +7,7 @@ curl "https://desolate-chamber-26085.herokuapp.com/words" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "word": {
-      "word": "'"${WORD}"'",
-      "user_id": "'"${USERID}"'"
+      "word": "'"${WORD}"'"
     }
   }'
 

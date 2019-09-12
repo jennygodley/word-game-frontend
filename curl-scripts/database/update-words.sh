@@ -8,7 +8,6 @@ curl "https://desolate-chamber-26085.herokuapp.com/words/${ID}" \
   --data '{
     "word": {
       "word": "'"${WORD}"'",
-      "user_id": "'"${USERID}"'"
     }
   }'
 

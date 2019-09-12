@@ -33,8 +33,7 @@ const createWord = function (formData) {
     },
     data: {
       "word": {
-        "word": formData.word.word,
-        "user_id": store.user.id
+        "word": formData.word.word
       }
     }
   })
@@ -60,8 +59,7 @@ const updateWord = function (formData) {
     data: {
       "word": {
         "user_id": store.dataId,
-        "word": formData.word.word,
-        "user_id": store.user.user_id
+        "word": formData.word.word
       }
     }
   })

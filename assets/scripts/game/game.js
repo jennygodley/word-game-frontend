@@ -56,6 +56,7 @@ const newGameSetup = function (data) {
 }
 
 const newGame = function () {
+  console.log(store.user.id)
   setKittyOne()
   store.usedLetters = []
   const wordArray = store.word.split('')
