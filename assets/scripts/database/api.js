@@ -58,7 +58,6 @@ const updateWord = function (formData) {
     },
     data: {
       "word": {
-        "user_id": store.dataId,
         "word": formData.word.word
       }
     }
