@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>bad kitty word match</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1 class="title">bad kitty word match</h1>
+
+      <div class="sign-in-sign-up row">
+        <div class="empty col-4"></div>
+        <div id="sign-in-sign-up" class="col-4 keep-largest">
+          <div id="accordion">
+            <div class="card border-warning mb-3">
+              <div class="card-header bg-transparent" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed text-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    sign in
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <form id="sign-in" autocomplete="on">
+                    <fieldset>
+                      <legend>sign in</legend>
+                      <input class="form-control" type="text" name="credentials[email]" placeholder="user name">
+                      <br>
+                      <input class="form-control" type="password" name="credentials[password]" placeholder="password" autocomplete="off">
+                      <br>
+                      <input class="btn btn-outline-info" type="submit" value="sign in">
+                      <div id="signin_message"></div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-header bg-transparent" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link text-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    sign up
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <form id="sign-up" autocomplete="on">
+                      <fieldset>
+                        <legend>sign up</legend>
+                        <input class="form-control" type="text" name="credentials[email]" placeholder="user name">
+                        <br>
+                        <input class="form-control" type="password" name="credentials[password]" placeholder="password" autocomplete="off">
+                        <br>
+                        <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="confirm password" autocomplete="on">
+                        <br>
+                        <input class="btn btn-outline-info" type="submit" value="sign up">
+                        <br>
+                        <div id="signup_message"></div>
+                      </fieldset>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="empty col-4"></div>
+      </div>
+
+      <div class="dropdown signed-in-options top-right">
+        <button class="btn btn-secondary dropdown-toggle btn-light text-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          options
+        </button>
+        <div class="dropdown-menu dropdown-menu-right border-info" aria-labelledby="dropdownMenuButton">
+          <a id="create-word" class="create-word dropdown-item text-info" href="#" data-toggle="modal" data-target="#createWordModal">add a word</a>
+          <a id="get-words" class="dropdown-item text-info" href="#" data-toggle="modal" data-target="#wordsModal">get words</a>
+          <a class="dropdown-item text-info" href="#" data-toggle="modal" data-target="#passwordModal">change password</a>
+
+          <a class="dropdown-item text-info" href="#" id="sign-out">sign out</a>
+        </div>
+      </div>
+
+      <div class="signed-in-options">
+        <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content parent-div">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">reset password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body content-div">
+                <form id="password" autocomplete="off">
+                  <fieldset>
+                    <input class="form-control" type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
+                    <br>
+                    <input class="form-control" type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
+                    <br>
+                    <input class="btn btn-outline-info" type="submit" value="reset">
+                    <div id="password_message"></div>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="wordsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content parent-div">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">your words</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="get-words-alerts">
+                </div>
+                <div id="get-words-messages"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="createWordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content parent-div">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">create a word</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body content-div">
+                <form id="create-word-form" autocomplete="off">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control"  name="word[word]" placeholder="new word">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-info create-button" type="submit">create</button>
+                    </div>
+                  </div>
+              </form>
+
+                <div id="create-words-messages"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="update-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content parent-div">
+          <div class="modal-header">
+            <h5 class="modal-title">edit word</h5>
+            <button type="button" class="close btn-outline-warning" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="update-modal content-div">
+            <form id="update-word-form">
+              <fieldset>
+                <br>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="update-word-field" name="word[word]" placeholder="new word" autocomplete="off">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-info update-word-form" id="update-word-submit" type="submit">update</button>
+                  </div>
+                </div>
+                <br>
+              </fieldset>
+            </form>
+          </div>
+          <div id="update-word-messages" class="update-word-messages">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gameboard signed-in-options clearfix">
+      <div class="image">
+      </div>
+      <br>
+      <div class="word-board clearfix">
+        <div class="kitty-image"><img alt="kitty1" src="https://i.imgur.com/3AiMlNe.jpg">
+        </div>
+        <div class="word-here" id="word-here">
+        </div>
+      </div>
+      <br>
+      <div class="game-messages" id="game-messages">
+      </div>
+      <br>
+      <div class="game-messages" id="used-letters">
+      </div>
+      <br>
+      <div class="game-messages" id="turns-left">
+      </div>
+      <br>
+      <div class="word-input">
+      </div>
+      <div class="letter-input" id="letter-input-div">
+        <form id="letter-input">
+          <div class="input-group mb-3">
+            <input type="text" maxlength="1" name="letter[letter]" class="form-control" placeholder="your letter" id="letter-input-field" autocomplete="off">
+            <div class="input-group-append">
+              <button class="btn btn-outline-info letter-input" type="submit" value="submit">submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br>
+      <div class="btn-group navbar navbar-default navbar-fixed-bottom justify-content-end" role="group">
+        <div class="clearfix justify-content-end d-flex">
+          <div class="bottom-buttons d-flex justify-content-end clearfix">
+            <button type="button" class="justify-content-end btn btn-outline-info button-margin" id="new-game-button">new game</button>
+            <button type="button" class="justify-content-end btn btn-outline-info button-margin" id="random-word">new random game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="star"><a href="#" class="jenny">★</a></div> -->
+
+    </body>
+</html>
