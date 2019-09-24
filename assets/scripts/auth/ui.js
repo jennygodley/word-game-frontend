@@ -44,8 +44,9 @@ const signInFailure = function () {
 }
 
 const passwordSuccess = function () {
-  $('#password_message').text('password changed').delay(2000).fadeOut()
-  $('#password_message').text('').delay(2000).fadeIn()
+  $('#password_message').text('password changed')
+  // .delay(2000).fadeOut()
+  // $('#password_message').text('').delay(2000).fadeIn()
   $('#password_message').removeClass()
   $('#password_message').addClass('success')
   $('#password').trigger('reset')
